@@ -19,8 +19,6 @@ export default function ProductsFilterForm({ onSubmit }: Props) {
   const countriesOptions = getCountries({ data: countries ?? [] });
   const citiesOptions = getCities({ country: getFieldValue("countries"), data: countries ?? [] });
 
-  // console.log(getFieldValue("city_id"));
-
   return (
     <Box
       as="section"
