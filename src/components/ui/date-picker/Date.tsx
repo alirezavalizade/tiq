@@ -1,4 +1,4 @@
-import type { Date } from "@/api/types"; // Assuming Date is a string representing a date
+import type { Date } from "@/api/types";
 import { Box, Text, Heading } from "@/components/ui";
 import { getDayOfTheWeek, getDayOfTheMonth } from "@/functions/date";
 import { cx } from "class-variance-authority";
@@ -8,7 +8,7 @@ interface DateItemProps {
   date: Date;
   value: Date;
   isDisabled?: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void; // Correct type for onChange
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function DateItem({ name, date, onChange, value, isDisabled = false }: DateItemProps) {

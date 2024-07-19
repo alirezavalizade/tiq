@@ -26,7 +26,6 @@ const createRoutes = (data) => {
     app.get(`/${key}`, (req, res) => {
       let results = data[key];
 
-      // Apply filters based on query parameters
       Object.entries(req.query).forEach(([queryKey, queryValue]) => {
         results = results.filter((item) => {
           const value = item[queryKey];

@@ -1,4 +1,4 @@
-import type { Date } from "@/api/types"; // Assuming Date is a string representing a date
+import type { Date } from "@/api/types";
 import { Box, Text } from "@/components/ui";
 
 import DateItem from "./Date";
