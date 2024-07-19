@@ -4,7 +4,7 @@ interface ImageProps {
   src: string;
   width: number;
   alt?: string;
-  ar?: string;
+  ar: string;
   className?: string;
 }
 
@@ -17,10 +17,17 @@ interface ImageParams {
 
 function generateSrcSet({ baseUrl, width, formats, ar }: ImageParams): string {
   return formats
-    .map(
-      ({ dpr, quality }) =>
-        `${baseUrl}?auto=format&dpr=${dpr}&fit=crop&ixlib=python-3.2.1&q=${quality}&ar=${ar}&w=${width} ${dpr}x`,
-    )
+    .map(({ dpr, quality }) => {
+      const url = new URL(baseUrl);
+      url.searchParams.set("auto", "format");
+      url.searchParams.set("dpr", dpr.toString());
+      url.searchParams.set("fit", "crop");
+      url.searchParams.set("ixlib", "python-3.2.1");
+      url.searchParams.set("q", quality.toString());
+      url.searchParams.set("ar", ar);
+      url.searchParams.set("w", width.toString());
+      return `${url.toString()} ${dpr}x`;
+    })
     .join(", ");
 }
 
